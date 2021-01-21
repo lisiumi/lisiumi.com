@@ -1,4 +1,5 @@
 import * as React from "react";
+import { css } from "@emotion/react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import ABlank from "../components/a-blank";
@@ -6,16 +7,63 @@ import ABlank from "../components/a-blank";
 const IndexPage = ({ data }) => {
   return (
     <>
-      <section id="home">
-        <Img fluid={data.aboutImage.childImageSharp.fluid} />
+      <section
+        css={css`
+          @supports (display: grid) {
+            display: grid;
+            grid-template: 50px auto 50px / 20px auto 20px;
+          }
+        `}
+        id="home"
+      >
+        <Img
+          imgStyle={{ height: "650px" }}
+          style={{
+            gridColumn: "1 / 4",
+            gridRow: "1 / 4",
+            height: "650px",
+          }}
+          fluid={data.aboutImage.childImageSharp.fluid}
+        />
 
-        <div>
-          <h2>
+        <div
+          css={css`
+            @supports not (display: grid) {
+              position: relative;
+              top: -560px;
+              @media (max-height: 420px) and (orientation: landscape) {
+                top: -460px;
+              }
+            }
+
+            @supports (display: grid) {
+              grid-column: 2 / 3;
+              grid-row: 2 / 3;
+              place-self: center;
+            }
+            margin: 0 auto;
+            max-width: 1024px;
+            z-index: 10;
+          `}
+        >
+          <h1
+            css={css`
+              color: #facb23;
+              font-size: 3rem;
+              font-weight: 900;
+              text-shadow: 1px 1px 2px black;
+            `}
+          >
             Static Sites,
             <br />
             Dynamic Powers.
-          </h2>
-          <p>
+          </h1>
+          <p
+            css={css`
+              color: white;
+              text-shadow: 1px 1px 2px black;
+            `}
+          >
             Are you tired of slow websites that take half a minute to load on
             mobile devices? Are you worried about your website getting hacked?
             Do you suspect you’re paying too much for hosting and maintenance?
