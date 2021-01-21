@@ -8,7 +8,7 @@ const Header = ({ gridArea }) => {
     query {
       siteLogo: file(relativePath: { eq: "lisiumi-logo-transparent.png" }) {
         childImageSharp {
-          fixed {
+          fixed(width: 329, height: 82) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
