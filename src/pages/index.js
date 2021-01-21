@@ -1,10 +1,15 @@
 import * as React from "react";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
 import ABlank from "../components/a-blank";
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  console.log(data);
   return (
     <>
       <section id="home">
+        <Img fluid={data.aboutImage.childImageSharp.fluid} />
+
         <div>
           <h2>
             Static Sites,
@@ -25,6 +30,7 @@ const IndexPage = () => {
         <h2>Why Lisiumi</h2>
 
         <div>
+          <Img fluid={data.techImage.childImageSharp.fluid} />
           <h3>Technology</h3>
           <p>
             Lisiumi’s sites are blazing fast because pages are pre-assembled and
@@ -42,6 +48,7 @@ const IndexPage = () => {
         </div>
 
         <div>
+          <Img fluid={data.uxImage.childImageSharp.fluid} />
           <h3>Design</h3>
           <p>
             Developing a strong user interface is essential if you’re looking to
@@ -54,6 +61,7 @@ const IndexPage = () => {
         </div>
 
         <div>
+          <Img fluid={data.serviceImage.childImageSharp.fluid} />
           <h3>Service</h3>
           <p>
             At Lisiumi, we understand the importance of service. That’s why
@@ -68,6 +76,8 @@ const IndexPage = () => {
         <div>
           <h2>What We Do</h2>
 
+          <Img fluid={data.gatsbyLogo.childImageSharp.fluid} />
+
           <h3>Static Website Development</h3>
           <p>
             <ABlank href="https://www.gatsbyjs.com/">Gatsby</ABlank> has emerged
@@ -75,6 +85,8 @@ const IndexPage = () => {
             from a variety of sources, including Medium and WordPress. We built
             our own site using Gatsby and recommend it to most clients.
           </p>
+
+          <Img fluid={data.wordpressLogo.childImageSharp.fluid} />
 
           <h3>WordPress Development</h3>
           <p>
@@ -84,6 +96,8 @@ const IndexPage = () => {
             established content managing platform, WordPress is your best
             choice.
           </p>
+
+          <Img fluid={data.fullstackImage.childImageSharp.fluid} />
 
           <h3>Full-Stack Web Application Development</h3>
           <p>
@@ -110,3 +124,59 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  query IndexPageQuery {
+    aboutImage: file(relativePath: { eq: "book-computer-design-326424.jpg" }) {
+      childImageSharp {
+        fluid(maxHeight: 600, quality: 90) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    uxImage: file(relativePath: { eq: "blur-business-computer-230544.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024, maxHeight: 440, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    techImage: file(relativePath: { eq: "coding-computer-hacker-97077.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024, maxHeight: 440, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    serviceImage: file(relativePath: { eq: "mike-wilson-96168-unsplash.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024, maxHeight: 440) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    gatsbyLogo: file(relativePath: { eq: "gatsby-logo-monogram-square.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    wordpressLogo: file(
+      relativePath: { eq: "WordPress-logotype-alternative-white.png" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    fullstackImage: file(relativePath: { eq: "full-stack-venn.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+  }
+`;
