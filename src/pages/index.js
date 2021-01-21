@@ -4,7 +4,6 @@ import Img from "gatsby-image";
 import ABlank from "../components/a-blank";
 
 const IndexPage = ({ data }) => {
-  console.log(data);
   return (
     <>
       <section id="home">
