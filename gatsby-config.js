@@ -31,5 +31,11 @@ module.exports = {
     },
     "gatsby-plugin-eslint",
     "gatsby-plugin-layout",
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
   ],
 };
