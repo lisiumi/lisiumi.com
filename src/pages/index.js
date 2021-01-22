@@ -254,7 +254,13 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
 
-      <section id="contact">
+      <section
+        css={css`
+          margin: 2rem auto;
+          max-width: 1024px;
+        `}
+        id="contact"
+      >
         <h2>Contact</h2>
         <p>
           Please email{" "}
