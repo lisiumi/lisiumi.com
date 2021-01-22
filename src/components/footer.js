@@ -18,6 +18,16 @@ const Footer = ({ gridArea }) => {
     <footer
       css={css`
         grid-area: ${gridArea};
+        text-align: center;
+
+        @supports not (display: grid) {
+          position: relative;
+          top: -460px;
+          height: fit-content;
+          @media (max-height: 420px) and (orientation: landscape) {
+            top: -320px;
+          }
+        }
       `}
     >
       <hr />

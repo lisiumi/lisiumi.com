@@ -5,6 +5,8 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 
 const Wrapper = styled.div`
+  label: grid-wrapper;
+
   @supports (display: grid) {
     display: grid;
     grid-template-areas:
@@ -21,6 +23,23 @@ const Index = (props) => {
       <main
         css={css`
           grid-area: content;
+
+          @supports not (display: grid) {
+            section:not(:first-of-type) {
+              position: relative;
+              top: -460px;
+              @media (max-height: 420px) and (orientation: landscape) {
+                top: -320px;
+              }
+            }
+          }
+
+          @supports (padding: max(0px)) {
+            p {
+              padding-left: max(12px, env(safe-area-inset-left));
+              padding-right: max(12px, env(safe-area-inset-right));
+            }
+          }
         `}
       >
         {props.children}
