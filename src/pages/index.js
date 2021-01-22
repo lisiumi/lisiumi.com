@@ -178,7 +178,8 @@ const IndexPage = ({ data }) => {
               grid-area: img1;
               margin: 60px auto;
             `}
-            fluid={data.gatsbyLogo.childImageSharp.fluid}
+            imgStyle={{ width: "80%", height: "80%" }}
+            fixed={data.gatsbyLogo.childImageSharp.fixed}
           />
 
           <h3
@@ -204,7 +205,8 @@ const IndexPage = ({ data }) => {
               grid-area: img2;
               margin: 60px auto;
             `}
-            fluid={data.wordpressLogo.childImageSharp.fluid}
+            imgStyle={{ width: "80%", height: "80%" }}
+            fixed={data.wordpressLogo.childImageSharp.fixed}
           />
 
           <h3
@@ -231,7 +233,8 @@ const IndexPage = ({ data }) => {
               grid-area: img3;
               margin: 60px auto;
             `}
-            fluid={data.fullstackImage.childImageSharp.fluid}
+            imgStyle={{ width: "80%", height: "80%" }}
+            fixed={data.fullstackImage.childImageSharp.fixed}
           />
 
           <h3
@@ -308,8 +311,8 @@ export const query = graphql`
     }
     gatsbyLogo: file(relativePath: { eq: "gatsby-logo-monogram-square.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        fixed(width: 400, height: 386) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
@@ -317,15 +320,15 @@ export const query = graphql`
       relativePath: { eq: "WordPress-logotype-alternative-white.png" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        fixed(width: 400, height: 216) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     fullstackImage: file(relativePath: { eq: "full-stack-venn.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        fixed(width: 400, height: 376) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
