@@ -1,8 +1,38 @@
 import React from "react";
 import { css } from "@emotion/react";
+import { injectGlobal } from "@emotion/css";
 import styled from "@emotion/styled";
 import Header from "../components/header";
 import Footer from "../components/footer";
+
+var scroll;
+if (typeof window !== "undefined") {
+  // Make scroll behavior of internal links smooth
+  // eslint-disable-next-line global-require
+  scroll = require("smooth-scroll")('a[href*="#"]', {
+    header: "header",
+    topOnEmptyHash: true,
+    easing: "easeInOutCubic",
+  });
+}
+
+injectGlobal`
+  * {
+    box-sizing: border-box;
+  }
+
+  section {
+    text-align:center;
+  }
+
+  section:not(:last-child) {
+    margin-bottom:50px;
+  }
+
+  section p {
+    margin: auto 0.5rem;
+  }
+`;
 
 const Wrapper = styled.div`
   label: grid-wrapper;
@@ -16,7 +46,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Index = (props) => {
+const Index = ({ children }) => {
   return (
     <Wrapper>
       <Header gridArea="header" />
@@ -42,7 +72,7 @@ const Index = (props) => {
           }
         `}
       >
-        {props.children}
+        {children}
       </main>
       <Footer gridArea="footer" />
     </Wrapper>

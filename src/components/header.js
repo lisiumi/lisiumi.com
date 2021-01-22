@@ -94,7 +94,7 @@ const Header = ({ gridArea }) => {
           }
         `}
       >
-        <a href="/#">
+        <a data-scroll href="/#">
           <Img
             css={css`
               ${dimensions};
@@ -179,19 +179,28 @@ const Header = ({ gridArea }) => {
             border-bottom: 3px solid black;
           }
         `}
+        data-scroll-header
       >
         <ul>
           <li>
-            <a href="/#home">Home</a>
+            <a data-scroll href="/#home">
+              Home
+            </a>
           </li>
           <li>
-            <a href="/#why">Why Lisiumi</a>
+            <a data-scroll href="/#why">
+              Why Lisiumi
+            </a>
           </li>
           <li>
-            <a href="/#services">What We Do</a>
+            <a data-scroll href="/#services">
+              What We Do
+            </a>
           </li>
           <li>
-            <a href="/#contact">Contact</a>
+            <a data-scroll href="/#contact">
+              Contact
+            </a>
           </li>
         </ul>
       </nav>
