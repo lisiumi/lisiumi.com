@@ -127,24 +127,98 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
 
-      <section id="services">
-        <div>
-          <h2>What We Do</h2>
+      <section
+        css={css`
+          background-color: black;
+          color: #facb23;
+        `}
+        id="services"
+      >
+        <div
+          css={css`
+            margin: 0 auto;
+            max-width: 1024px;
+            padding: 80px 0;
 
-          <Img fluid={data.gatsbyLogo.childImageSharp.fluid} />
+            & a {
+              color: #facb23;
+            }
 
-          <h3>Static Website Development</h3>
-          <p>
+            & p {
+              color: white;
+            }
+
+            @media (min-width: 500px) {
+              @supports (display: grid) {
+                display: grid;
+                grid-gap: 40px;
+                grid-template-areas:
+                  "heading0 heading0 heading0"
+                  "img1 img2 img3"
+                  "heading1 heading2 heading3"
+                  "paragraph1 paragraph2 paragraph3";
+
+                & > * {
+                  align-self: center;
+                }
+              }
+            }
+          `}
+        >
+          <h2
+            css={css`
+              grid-area: heading0;
+            `}
+          >
+            What We Do
+          </h2>
+
+          <Img
+            css={css`
+              grid-area: img1;
+              margin: 60px auto;
+            `}
+            fluid={data.gatsbyLogo.childImageSharp.fluid}
+          />
+
+          <h3
+            css={css`
+              grid-area: heading1;
+            `}
+          >
+            Static Website Development
+          </h3>
+          <p
+            css={css`
+              grid-area: paragraph1;
+            `}
+          >
             <ABlank href="https://www.gatsbyjs.com/">Gatsby</ABlank> has emerged
             as one of the most popular static site generators. It can fetch data
             from a variety of sources, including Medium and WordPress. We built
             our own site using Gatsby and recommend it to most clients.
           </p>
 
-          <Img fluid={data.wordpressLogo.childImageSharp.fluid} />
+          <Img
+            css={css`
+              grid-area: img2;
+              margin: 60px auto;
+            `}
+            fluid={data.wordpressLogo.childImageSharp.fluid}
+          />
 
-          <h3>WordPress Development</h3>
-          <p>
+          <h3
+            css={css`
+              grid-area: heading2;
+            `}
+          >
+            WordPress Development
+          </h3>
+          <p
+            css={css`
+              grid-area: paragraph2;
+            `}
+          >
             <ABlank href="https://wordpress.org/">WordPress</ABlank> powers 30%
             of all websites and online stores. Its greatest strengths include an
             intuitive user interface and a mature ecosystem. If you prefer an
@@ -152,10 +226,26 @@ const IndexPage = ({ data }) => {
             choice.
           </p>
 
-          <Img fluid={data.fullstackImage.childImageSharp.fluid} />
+          <Img
+            css={css`
+              grid-area: img3;
+              margin: 60px auto;
+            `}
+            fluid={data.fullstackImage.childImageSharp.fluid}
+          />
 
-          <h3>Full-Stack Web Application Development</h3>
-          <p>
+          <h3
+            css={css`
+              grid-area: heading3;
+            `}
+          >
+            Full-Stack Web Application Development
+          </h3>
+          <p
+            css={css`
+              grid-area: paragraph3;
+            `}
+          >
             If you need more functionality and versatility than what Gatsby and
             WordPress have to offer, a full-stack application may be right for
             you. At Lisiumi, we currently specialise in React, Node.js, Express,
