@@ -17,7 +17,14 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: "Lisiumi",
+        short_name: "Lisiumi",
+        start_url: "/",
+        background_color: "#facb23",
+        theme_color: "#393939",
+        display: "standalone",
         icon: "src/images/icon.png",
+        crossOrigin: "use-credentials",
       },
     },
     "gatsby-transformer-sharp",
