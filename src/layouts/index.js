@@ -1,7 +1,9 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import { css } from "@emotion/react";
 import { injectGlobal } from "@emotion/css";
 import styled from "@emotion/styled";
+import { Helmet } from "react-helmet";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
@@ -47,9 +49,30 @@ const Wrapper = styled.div`
 `;
 
 const Index = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
   return (
     <Wrapper>
+      <Helmet>
+        <title>{data.site.siteMetadata.title}</title>
+        <meta
+          name="description"
+          content="Web development agency specialising in GatsbyJS and React."
+        />
+        <meta name="theme-color" content="#393939" />
+        <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
+      </Helmet>
+
       <Header gridArea="header" />
+
       <main
         css={css`
           grid-area: content;
@@ -74,6 +97,7 @@ const Index = ({ children }) => {
       >
         {children}
       </main>
+
       <Footer gridArea="footer" />
     </Wrapper>
   );
