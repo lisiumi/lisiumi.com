@@ -5,7 +5,13 @@ import Img from "gatsby-image";
 import ABlank from "../components/a-blank";
 import AnimatedHeading from "../components/animated-heading";
 import AnimatedParagraph from "../components/animated-paragraph";
-import { textFocusIn, trackingInExpand } from "../utils/animista";
+import {
+  textFocusIn,
+  trackingInContractBckTop,
+  trackingInContractBck,
+  trackingInContractBckBottom,
+  trackingInExpand,
+} from "../utils/animista";
 
 const IndexPage = ({ data }) => {
   return (
@@ -92,8 +98,12 @@ const IndexPage = ({ data }) => {
 
         <div>
           <Img fluid={data.techImage.childImageSharp.fluid} />
-          <h3>Technology</h3>
-          <p>
+          <h3>
+            <AnimatedHeading animationCSS={trackingInContractBckTop}>
+              Technology
+            </AnimatedHeading>
+          </h3>
+          <AnimatedParagraph animationCSS={textFocusIn}>
             Lisiumi’s sites are blazing fast because pages are pre-assembled and
             served over a <abbr title="Content Delivery Network">CDN</abbr>. Our
             sites are secure thanks to minimal attack surface areas and
@@ -105,31 +115,39 @@ const IndexPage = ({ data }) => {
               9 reasons your site should be static
             </ABlank>
             .
-          </p>
+          </AnimatedParagraph>
         </div>
 
         <div>
           <Img fluid={data.uxImage.childImageSharp.fluid} />
-          <h3>Design</h3>
-          <p>
+          <h3>
+            <AnimatedHeading animationCSS={trackingInContractBck}>
+              Design
+            </AnimatedHeading>
+          </h3>
+          <AnimatedParagraph animationCSS={textFocusIn}>
             Developing a strong user interface is essential if you’re looking to
             attract interest and attention with your target audience. At
             Lisiumi, our UI & UX design services can play an integral role in
             successfully promoting you and your organisation. From the initial
             design concept to the final outcome, we work diligently towards
             bringing your vision to life in the most professional manner.
-          </p>
+          </AnimatedParagraph>
         </div>
 
         <div>
           <Img fluid={data.serviceImage.childImageSharp.fluid} />
-          <h3>Service</h3>
-          <p>
+          <h3>
+            <AnimatedHeading animationCSS={trackingInContractBckBottom}>
+              Service
+            </AnimatedHeading>
+          </h3>
+          <AnimatedParagraph animationCSS={textFocusIn}>
             At Lisiumi, we understand the importance of service. That’s why
             we’re always working to ensure our clients’ needs get the attention
             they deserve. By choosing to work with us, you can expect proactive,
             solution-oriented service that will leave a lasting impression.
-          </p>
+          </AnimatedParagraph>
         </div>
       </section>
 
