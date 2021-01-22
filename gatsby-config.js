@@ -1,5 +1,8 @@
 module.exports = {
   siteMetadata: {
+    author: "Leon Feng",
+    description: "The official website of Lisiumi LLC",
+    siteUrl: "https://lisiumi.com",
     title: "Lisiumi",
   },
   plugins: [
