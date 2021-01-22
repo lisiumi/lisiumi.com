@@ -3,6 +3,9 @@ import { css } from "@emotion/react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import ABlank from "../components/a-blank";
+import AnimatedHeading from "../components/animated-heading";
+import AnimatedParagraph from "../components/animated-paragraph";
+import { textFocusIn, trackingInExpand } from "../utils/animista";
 
 const IndexPage = ({ data }) => {
   return (
@@ -54,22 +57,25 @@ const IndexPage = ({ data }) => {
               text-shadow: 1px 1px 2px black;
             `}
           >
-            Static Sites,
+            <AnimatedHeading animationCSS={trackingInExpand}>
+              Static Sites,
+            </AnimatedHeading>
             <br />
-            Dynamic Powers.
+            <AnimatedHeading animationCSS={trackingInExpand}>
+              Dynamic Powers.
+            </AnimatedHeading>
           </h1>
-          <p
-            css={css`
-              color: white;
-              text-shadow: 1px 1px 2px black;
-            `}
+          <AnimatedParagraph
+            animationCSS={textFocusIn}
+            color="white"
+            textShadow="1px 1px 2px black"
           >
             Are you tired of slow websites that take half a minute to load on
             mobile devices? Are you worried about your website getting hacked?
             Do you suspect you’re paying too much for hosting and maintenance?
             If you answered “yes” to any of the above questions, you’ll love
             Lisiumi’s static websites.
-          </p>
+          </AnimatedParagraph>
         </div>
       </section>
 

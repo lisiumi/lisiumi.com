@@ -34,6 +34,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-typography": "^0.16.19",
+    "scrollmonitor-react": "^2.4.1",
     "typography": "^0.16.19",
     "typography-theme-noriega": "^0.16.19"
   },
