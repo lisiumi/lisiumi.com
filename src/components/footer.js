@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, navigate } from "gatsby";
 import { css } from "@emotion/react";
 
 const Footer = ({ gridArea }) => {
@@ -34,8 +34,26 @@ const Footer = ({ gridArea }) => {
       <p>
         &copy; {new Date().getFullYear()} {siteTitle}. All rights reserved.
         <br />
-        {/* TODO: link to opt-out page */}
-        This site uses Google Analytics. You can opt out at any time.
+        This site uses Google Analytics. You can{" "}
+        <button
+          css={css`
+            border: none;
+            background-color: transparent;
+            color: #0000ee;
+            text-decoration: underline;
+          `}
+          onClick={function handleOptout() {
+            if (window.gaOptout) {
+              window.gaOptout();
+              navigate("/opt-out/");
+            } else {
+              alert("Something went wrong. Please try again later.");
+            }
+          }}
+        >
+          opt out
+        </button>{" "}
+        at any time.
       </p>
     </footer>
   );
