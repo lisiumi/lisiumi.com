@@ -211,18 +211,16 @@ const IndexPage = ({ data }) => {
               grid-area: heading1;
             `}
           >
-            Static Website Development
+            <AnimatedHeading animationCSS={textFocusIn}>
+              Static Website Development
+            </AnimatedHeading>
           </h3>
-          <p
-            css={css`
-              grid-area: paragraph1;
-            `}
-          >
+          <AnimatedParagraph animationCSS={textFocusIn} gridArea="paragraph1">
             <ABlank href="https://www.gatsbyjs.com/">Gatsby</ABlank> has emerged
             as one of the most popular static site generators. It can fetch data
             from a variety of sources, including Medium and WordPress. We built
             our own site using Gatsby and recommend it to most clients.
-          </p>
+          </AnimatedParagraph>
 
           <Img
             css={css`
@@ -238,19 +236,17 @@ const IndexPage = ({ data }) => {
               grid-area: heading2;
             `}
           >
-            WordPress Development
+            <AnimatedHeading animationCSS={textFocusIn}>
+              WordPress Development
+            </AnimatedHeading>
           </h3>
-          <p
-            css={css`
-              grid-area: paragraph2;
-            `}
-          >
+          <AnimatedParagraph animationCSS={textFocusIn} gridArea="paragraph2">
             <ABlank href="https://wordpress.org/">WordPress</ABlank> powers 30%
             of all websites and online stores. Its greatest strengths include an
             intuitive user interface and a mature ecosystem. If you prefer an
             established content managing platform, WordPress is your best
             choice.
-          </p>
+          </AnimatedParagraph>
 
           <Img
             css={css`
@@ -266,18 +262,16 @@ const IndexPage = ({ data }) => {
               grid-area: heading3;
             `}
           >
-            Full-Stack Web Application Development
+            <AnimatedHeading animationCSS={textFocusIn}>
+              Full-Stack Web Application Development
+            </AnimatedHeading>
           </h3>
-          <p
-            css={css`
-              grid-area: paragraph3;
-            `}
-          >
+          <AnimatedParagraph animationCSS={textFocusIn} gridArea="paragraph3">
             If you need more functionality and versatility than what Gatsby and
             WordPress have to offer, a full-stack application may be right for
             you. At Lisiumi, we currently specialise in React, Node.js, Express,
             and MongoDB.
-          </p>
+          </AnimatedParagraph>
         </div>
       </section>
 
