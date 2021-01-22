@@ -3,6 +3,15 @@ import { css } from "@emotion/react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import ABlank from "../components/a-blank";
+import AnimatedHeading from "../components/animated-heading";
+import AnimatedParagraph from "../components/animated-paragraph";
+import {
+  textFocusIn,
+  trackingInContractBckTop,
+  trackingInContractBck,
+  trackingInContractBckBottom,
+  trackingInExpand,
+} from "../utils/animista";
 
 const IndexPage = ({ data }) => {
   return (
@@ -54,22 +63,25 @@ const IndexPage = ({ data }) => {
               text-shadow: 1px 1px 2px black;
             `}
           >
-            Static Sites,
+            <AnimatedHeading animationCSS={trackingInExpand}>
+              Static Sites,
+            </AnimatedHeading>
             <br />
-            Dynamic Powers.
+            <AnimatedHeading animationCSS={trackingInExpand}>
+              Dynamic Powers.
+            </AnimatedHeading>
           </h1>
-          <p
-            css={css`
-              color: white;
-              text-shadow: 1px 1px 2px black;
-            `}
+          <AnimatedParagraph
+            animationCSS={textFocusIn}
+            color="white"
+            textShadow="1px 1px 2px black"
           >
             Are you tired of slow websites that take half a minute to load on
             mobile devices? Are you worried about your website getting hacked?
             Do you suspect you’re paying too much for hosting and maintenance?
             If you answered “yes” to any of the above questions, you’ll love
             Lisiumi’s static websites.
-          </p>
+          </AnimatedParagraph>
         </div>
       </section>
 
@@ -86,8 +98,12 @@ const IndexPage = ({ data }) => {
 
         <div>
           <Img fluid={data.techImage.childImageSharp.fluid} />
-          <h3>Technology</h3>
-          <p>
+          <h3>
+            <AnimatedHeading animationCSS={trackingInContractBckTop}>
+              Technology
+            </AnimatedHeading>
+          </h3>
+          <AnimatedParagraph animationCSS={textFocusIn}>
             Lisiumi’s sites are blazing fast because pages are pre-assembled and
             served over a <abbr title="Content Delivery Network">CDN</abbr>. Our
             sites are secure thanks to minimal attack surface areas and
@@ -99,31 +115,39 @@ const IndexPage = ({ data }) => {
               9 reasons your site should be static
             </ABlank>
             .
-          </p>
+          </AnimatedParagraph>
         </div>
 
         <div>
           <Img fluid={data.uxImage.childImageSharp.fluid} />
-          <h3>Design</h3>
-          <p>
+          <h3>
+            <AnimatedHeading animationCSS={trackingInContractBck}>
+              Design
+            </AnimatedHeading>
+          </h3>
+          <AnimatedParagraph animationCSS={textFocusIn}>
             Developing a strong user interface is essential if you’re looking to
             attract interest and attention with your target audience. At
             Lisiumi, our UI & UX design services can play an integral role in
             successfully promoting you and your organisation. From the initial
             design concept to the final outcome, we work diligently towards
             bringing your vision to life in the most professional manner.
-          </p>
+          </AnimatedParagraph>
         </div>
 
         <div>
           <Img fluid={data.serviceImage.childImageSharp.fluid} />
-          <h3>Service</h3>
-          <p>
+          <h3>
+            <AnimatedHeading animationCSS={trackingInContractBckBottom}>
+              Service
+            </AnimatedHeading>
+          </h3>
+          <AnimatedParagraph animationCSS={textFocusIn}>
             At Lisiumi, we understand the importance of service. That’s why
             we’re always working to ensure our clients’ needs get the attention
             they deserve. By choosing to work with us, you can expect proactive,
             solution-oriented service that will leave a lasting impression.
-          </p>
+          </AnimatedParagraph>
         </div>
       </section>
 
@@ -187,18 +211,16 @@ const IndexPage = ({ data }) => {
               grid-area: heading1;
             `}
           >
-            Static Website Development
+            <AnimatedHeading animationCSS={textFocusIn}>
+              Static Website Development
+            </AnimatedHeading>
           </h3>
-          <p
-            css={css`
-              grid-area: paragraph1;
-            `}
-          >
+          <AnimatedParagraph animationCSS={textFocusIn} gridArea="paragraph1">
             <ABlank href="https://www.gatsbyjs.com/">Gatsby</ABlank> has emerged
             as one of the most popular static site generators. It can fetch data
             from a variety of sources, including Medium and WordPress. We built
             our own site using Gatsby and recommend it to most clients.
-          </p>
+          </AnimatedParagraph>
 
           <Img
             css={css`
@@ -214,19 +236,17 @@ const IndexPage = ({ data }) => {
               grid-area: heading2;
             `}
           >
-            WordPress Development
+            <AnimatedHeading animationCSS={textFocusIn}>
+              WordPress Development
+            </AnimatedHeading>
           </h3>
-          <p
-            css={css`
-              grid-area: paragraph2;
-            `}
-          >
+          <AnimatedParagraph animationCSS={textFocusIn} gridArea="paragraph2">
             <ABlank href="https://wordpress.org/">WordPress</ABlank> powers 30%
             of all websites and online stores. Its greatest strengths include an
             intuitive user interface and a mature ecosystem. If you prefer an
             established content managing platform, WordPress is your best
             choice.
-          </p>
+          </AnimatedParagraph>
 
           <Img
             css={css`
@@ -242,18 +262,16 @@ const IndexPage = ({ data }) => {
               grid-area: heading3;
             `}
           >
-            Full-Stack Web Application Development
+            <AnimatedHeading animationCSS={textFocusIn}>
+              Full-Stack Web Application Development
+            </AnimatedHeading>
           </h3>
-          <p
-            css={css`
-              grid-area: paragraph3;
-            `}
-          >
+          <AnimatedParagraph animationCSS={textFocusIn} gridArea="paragraph3">
             If you need more functionality and versatility than what Gatsby and
             WordPress have to offer, a full-stack application may be right for
             you. At Lisiumi, we currently specialise in React, Node.js, Express,
             and MongoDB.
-          </p>
+          </AnimatedParagraph>
         </div>
       </section>
 
