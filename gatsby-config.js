@@ -47,5 +47,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    "gatsby-plugin-preact",
+    "gatsby-plugin-preload-fonts",
   ],
 };

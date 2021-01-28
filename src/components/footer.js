@@ -1,5 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql, navigate } from "gatsby";
+import Img from "gatsby-image";
 import { css } from "@emotion/react";
 
 const Footer = ({ gridArea }) => {
@@ -8,6 +9,13 @@ const Footer = ({ gridArea }) => {
       site {
         siteMetadata {
           title
+        }
+      }
+      greenBadgeImage: file(relativePath: { eq: "Green - lisiumi.com.png" }) {
+        childImageSharp {
+          fixed(width: 300, height: 135) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
         }
       }
     }
@@ -54,6 +62,12 @@ const Footer = ({ gridArea }) => {
           opt out
         </button>{" "}
         at any time.
+      </p>
+      <p>
+        <Img
+          fixed={data.greenBadgeImage.childImageSharp.fixed}
+          alt="This website is hosted Green - checked by thegreenwebfoundation.org"
+        />
       </p>
     </footer>
   );
